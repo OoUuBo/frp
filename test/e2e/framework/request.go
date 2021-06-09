@@ -66,6 +66,13 @@ func (e *RequestExpect) PortName(name string) *RequestExpect {
 	return e
 }
 
+func (e *RequestExpect) Port(port int) *RequestExpect {
+	if e.f != nil {
+		e.req.Port(port)
+	}
+	return e
+}
+
 func (e *RequestExpect) ExpectResp(resp []byte) *RequestExpect {
 	e.expectResp = resp
 	return e
